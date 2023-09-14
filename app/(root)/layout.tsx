@@ -1,4 +1,4 @@
-import './globals.css'
+import '../globals.css'
 import { Navbar, Footer } from '@/components'
 import { ClerkProvider } from "@clerk/nextjs";
 
