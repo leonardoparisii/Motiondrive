@@ -1,4 +1,4 @@
-import AuthProvider from '@/components/AuthProvider'
+import { ClerkProvider } from '@clerk/nextjs'
 import './globals.css'
 import { Navbar, Footer } from '@/components'
 
@@ -13,15 +13,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-        
-      <body className='relative'>
-        <AuthProvider>
-            <Navbar />
-            {children}
-            <Footer />
-        </AuthProvider>
-        </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className='relative'>
+              <Navbar />
+              {children}
+              <Footer />
+          </body>
+      </html>
+    </ClerkProvider>
   )
 }

@@ -50,10 +50,6 @@ export interface ShowMoreProps {
 }
 export interface HomeProps {
     searchParams: FilterProps;
-  }
-
-export interface AuthProviderProps {
-    children: any
 }
 
 export interface AvatarProps {

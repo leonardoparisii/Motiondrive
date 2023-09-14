@@ -1,12 +1,8 @@
 'use client'
 import Link from 'next/link'
+import { UserButton } from "@clerk/nextjs";
 import Image from 'next/image'
-import CustomButton from './CustomButton'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import Avatar from './Avatar'
 const Navbar = () => {
-    const session = useSession();
-    console.log(session);
 
   return (
     <header className='w-full absolute z-10'>
@@ -16,20 +12,7 @@ const Navbar = () => {
                     Motiondrive
                 </h1>
             </Link>
-            {session.status === 'unauthenticated' || session.status === 'loading' ? (                
-                <CustomButton
-                        title='sign In'
-                        btnType='button'
-                        containerStyles='text-primary-green
-                        rounded-full bg-white min-w-[130px]'
-                        handleClick={() => signIn('google')}
-                    />
-            ) : (
-                <Avatar
-                    src={session.data?.user?.image || null}
-                    onClick={signOut}
-                />
-            )}
+            <UserButton afterSignOutUrl="/sign-in"/>
         </nav>
     </header>
   )
