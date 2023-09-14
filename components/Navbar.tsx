@@ -25,11 +25,10 @@ const Navbar = () => {
                         handleClick={() => signIn('google')}
                     />
             ) : (
-
                 <Avatar
-                        src={session.data?.user.image}
-                        onClick={signOut}
-                    />
+                    src={session.data?.user?.image || null}
+                    onClick={signOut}
+                />
             )}
         </nav>
     </header>
